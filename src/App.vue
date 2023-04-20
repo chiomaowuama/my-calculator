@@ -10,57 +10,57 @@ const operationFired = ref (false);
 
 function switchTheme(theme){
   localStorage.setItem('theme-color', theme);
-  this.currentTheme = theme;
+  currentTheme.value = theme;
 }
 function clearField(){
-  this.output = '';
+  output.value = '';
 }
 function getNumber(number){
- 
-  if(this.operationFired){
-    this.output = ''
-    this.operationFired = false;
+  if(operationFired.value){
+    output.value = ''
+    operationFired.value = false;
   }
-  this.output = `${this.output}${number}`;
+  output.value = `${output.value}${number}`;
   
 }
 function getDot(){
-  if(this.output.indexOf('.') === -1){
-    this.output = this.output+'.';
+  if(output.value.indexOf('.') === -1){
+    output.value = output.value+'.';
   }
 }
+
 function proccessOutput(string){
   if(string == 'add'){
-    this.operation = (a,b) => {
+    operation = (a,b) => {
       return parseFloat(a) + parseFloat(b);
     }
   }
   else if(string == 'subtract'){
-    this.operation = (a,b) => {
+    operation = (a,b) => {
     return parseFloat(a) - parseFloat(b);
   }
   }
   else if(string == 'divide'){
-    this.operation = (a,b) => {
+    operation = (a,b) => {
     return parseFloat(a) / parseFloat(b);
   }
 
   }
   else if(string == 'multiply'){
-    this.operation = (a,b) => {
+    operation = (a,b) => {
     return parseFloat(a) * parseFloat(b);
   }
   }
-  this.previousValue = this.output;
-  this.operationFired = true;
+  previousValue.value = output.value;
+  operationFired.value = true;
 }
 function updateOutput(){
-  this.output = `${this.operation(this.previousValue, this.output)}`;
-  this.previousValue = null;
+  output.value = `${this.operation(previousValue.value, output.value)}`;
+  previousValue.value = null;
 
 }
 function deleteNumber(){
-  this.output = this.output.slice(0,-1);
+output.value = output.value.slice(0,-1);
 }
 </script>
 
