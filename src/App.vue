@@ -16,16 +16,10 @@ function clearField(){
   output.value = '';
 }
 function getNumber(number){
-<<<<<<< HEAD
  
   if(operationFired.value){
     output.value = ''
     operationFired.value = false;
-=======
-  if(operationFired.value){
-    output.value = ''
-    operationFired.value = false;
->>>>>>> 4da72c01a765dddaa152c41ed32693b519c8872d
   }
   output.value = `${output.value}${number}`;
   
