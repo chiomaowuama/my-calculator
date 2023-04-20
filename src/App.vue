@@ -16,9 +16,16 @@ function clearField(){
   output.value = '';
 }
 function getNumber(number){
+<<<<<<< HEAD
+ 
   if(operationFired.value){
     output.value = ''
     operationFired.value = false;
+=======
+  if(operationFired.value){
+    output.value = ''
+    operationFired.value = false;
+>>>>>>> 4da72c01a765dddaa152c41ed32693b519c8872d
   }
   output.value = `${output.value}${number}`;
   
@@ -31,23 +38,23 @@ function getDot(){
 
 function proccessOutput(string){
   if(string == 'add'){
-    operation = (a,b) => {
+      this.operation = (a,b) => {
       return parseFloat(a) + parseFloat(b);
     }
   }
   else if(string == 'subtract'){
-    operation = (a,b) => {
+    this.operation = (a,b) => {
     return parseFloat(a) - parseFloat(b);
   }
   }
   else if(string == 'divide'){
-    operation = (a,b) => {
+    this.operation = (a,b) => {
     return parseFloat(a) / parseFloat(b);
   }
 
   }
   else if(string == 'multiply'){
-    operation = (a,b) => {
+    this.operation = (a,b) => {
     return parseFloat(a) * parseFloat(b);
   }
   }
